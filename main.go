@@ -62,6 +62,7 @@ func execInput(input string) error {
 		return os.Chdir(args[1])
     case "easter_egg":
         fmt.Println("  ^~^  ,\n ('Y') )\n /   \\/ \n(\\|||/)")
+		return nil
     case "pwd":
         directory, err := os.Getwd()
         if err != nil {
