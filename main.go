@@ -13,7 +13,7 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		fmt.Print("> ")
-		// Read the keyboad input.
+		// Read the keyboard input.
 		input, err := reader.ReadString('\n')
 		if err != nil {
 			fmt.Fprintln(os.Stderr, err)
@@ -21,6 +21,7 @@ func main() {
 
 		// Remove the newline character.
 		input = strings.TrimSuffix(input, "\n")
+		input = strings.TrimSuffix(input, "\r")
 
 		// Skip an empty input.
 		if input == "" {
@@ -50,6 +51,12 @@ func execInput(input string) error {
 		}
 		// Change the directory and return the error.
 		return os.Chdir(args[1])
+    case "pwd":
+        directory, err := os.Getwd()
+        if err != nil {
+            fmt.Println(err)
+        }
+        fmt.Println(directory)
 	case "exit":
 		os.Exit(0)
 	}
