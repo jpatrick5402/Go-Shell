@@ -57,6 +57,7 @@ func execInput(input string) error {
             fmt.Println(err)
         }
         fmt.Println(directory)
+        return err
 	case "exit":
 		os.Exit(0)
 	}
