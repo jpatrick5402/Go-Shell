@@ -44,6 +44,11 @@ func execInput(input string) error {
 
 	// Check for built-in commands.
 	switch args[0] {
+    case "ls", "dir":
+        directory, err := os.Getwd()
+        contents, err :=os.ReadDir(directory)
+        fmt.Println(contents)
+        return err
 	case "cd":
 		// 'cd' to home with empty path not yet supported.
 		if len(args) < 2 {
