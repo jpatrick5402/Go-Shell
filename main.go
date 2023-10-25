@@ -44,6 +44,10 @@ func execInput(input string) error {
 
 	// Check for built-in commands.
 	switch args[0] {
+    case "help":
+        fmt.Println("You are using the Go-shell")
+        fmt.Println("Command List:")
+        fmt.Println("ls/dir\ncd\npwd\nexit")
     case "ls", "dir":
         directory, err := os.Getwd()
         contents, err :=os.ReadDir(directory)
