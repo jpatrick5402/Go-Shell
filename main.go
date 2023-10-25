@@ -45,16 +45,19 @@ func execInput(input string) error {
 	// Check for built-in commands.
 	switch args[0] {
     case "help":
+		// help command to provide a list of commands
         fmt.Println("You are using the Go-shell")
         fmt.Println("Command List:")
         fmt.Println("ls/dir\ncd\npwd\nexit")
+		return nil
     case "ls", "dir":
+		// 'ls'/'dir' used to list files in the current directory
         directory, err := os.Getwd()
         contents, err :=os.ReadDir(directory)
         fmt.Println(contents)
         return err
 	case "cd":
-		// 'cd' to home with empty path not yet supported.
+		// 'cd' to specific location.
 		if len(args) < 2 {
 			return ErrNoPath
 		}
@@ -64,6 +67,7 @@ func execInput(input string) error {
         fmt.Println("  ^~^  ,\n ('Y') )\n /   \\/ \n(\\|||/)")
 		return nil
     case "pwd":
+		// print the current working directory
         directory, err := os.Getwd()
         if err != nil {
             fmt.Println(err)
@@ -71,6 +75,7 @@ func execInput(input string) error {
         fmt.Println(directory)
         return err
 	case "exit":
+		// exit the program
 		os.Exit(0)
 	}
 
