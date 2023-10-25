@@ -60,7 +60,7 @@ func execInput(input string) error {
 		}
 		// Change the directory and return the error.
 		return os.Chdir(args[1])
-    case "easteregg":
+    case "easter_egg":
         fmt.Println("  ^~^  ,\n ('Y') )\n /   \\/ \n(\\|||/)")
     case "pwd":
         directory, err := os.Getwd()
